@@ -11,7 +11,7 @@
 
     </head>
     <body>
-         <h1 class="title">
+        <h1 class="title">
             {{ $post->title }}
         </h1>
         <div class="content">
@@ -22,6 +22,7 @@
         </div>
         <div class="footer">
             <a href="/">戻る</a>
+            <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
         </div>
     </body>
 </html>
