@@ -22,7 +22,21 @@
         </div>
         <div class="footer">
             <a href="/">戻る</a>
+            <form action="/posts/{{ $post->id }}" id='form_{{ $post->id }}' method="post">
+                @csrf
+                @method('DELETE')
+                <!--<input type="submit" style="display:none">-->
+                <button class="delete" type="submit">[<span onclick="return deletePost()";>delete</span>]</button>
+            </form>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
         </div>
+        <script>
+            function deletePost() {
+            'use script';
+            if( confirm("削除してもいいですかー？")) {
+                document.getElementById('form_{{ $post->id }}').submit();
+            }
+            }
+        </script>
     </body>
 </html>
