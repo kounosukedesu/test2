@@ -10,7 +10,8 @@
         <link href="https:fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    @extends('layouts.app')　　　　　　　　　　　　　　　　　　
+    @section('content')
         <h1 class="title">
             {{ $post->title }}
         </h1>
@@ -21,22 +22,22 @@
             </div>
         </div>
         <div class="footer">
-            <a href="/">戻る</a>
-            <form action="/posts/{{ $post->id }}" id='form_{{ $post->id }}' method="post">
-                @csrf
-                @method('DELETE')
-                <!--<input type="submit" style="display:none">-->
-                <button class="delete" type="submit">[<span onclick="return deletePost()";>delete</span>]</button>
+            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+            <form action="/posts/{{ $post->id }}" id='form_delete' method="post">
+            @csrf
+            @method('DELETE')
+            <button type="button">[<span onclick="return deletePost()";>delete</span>]</button>
             </form>
             <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
         </div>
-        <script>
+         <a href="/">戻る</a>
+         <script>
             function deletePost() {
             'use script';
             if( confirm("削除してもいいですかー？")) {
-                document.getElementById('form_{{ $post->id }}').submit();
+                document.getElementById('form_delete').submit();
             }
             }
         </script>
-    </body>
+    @endsection
 </html>

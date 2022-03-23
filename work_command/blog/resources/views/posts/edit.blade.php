@@ -10,6 +10,8 @@
         <link href="https:fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
     </head>
+    @extends('layouts.app')　　　　　　　　　　　　　　　　　　
+    @section('content')
     <body>
         <h1 class="title">編集画面</h1>
         <div class="content">
@@ -29,4 +31,6 @@
         </div>
         <div class="back">[<a href="/">back</a>]</div>
     </body>
+    @endsection
+
 </html>
